@@ -32,9 +32,7 @@ ShadowSpray supports CTRL+C so if at any point you wish to stop the execution ju
 
 ## Demo
 
-VIDEO_PLACEHOLDER
-
-
+https://user-images.githubusercontent.com/54464773/194827503-b1eead1a-e09a-41ca-9d9b-0a7a6f0ad6a0.mp4
 
 ## Usage
 ```
