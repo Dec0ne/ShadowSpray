@@ -61,6 +61,7 @@ General Options:
 - [ ] Code refactoring and cleanup!!!
 - [ ] Add Verbose output option
 - [ ] Add option to save KeyCredentials added / TGT requested / NT Hashes gathered to a file on disk
+- [ ] Python version ;)
 - [ ] Other suggestions will be welcomed
 
 ## Mitigation and Detection
