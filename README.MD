@@ -64,7 +64,7 @@ General Options:
 - [ ] Other suggestions will be welcomed
 
 ## Mitigation and Detection
-Taken from [Elad Shamir](elad_shamir)'s blog post on [Shadow Credentials](https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab):
+Taken from [Elad Shamir](https://twitter.com/elad_shamir)'s blog post on [Shadow Credentials](https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab):
 * If PKINIT authentication is not common in the environment or not common for the target account, the “Kerberos authentication ticket (TGT) was requested” event (4768) can indicate anomalous behavior when the Certificate Information attributes are not blank.
 * If a SACL is configured to audit Active Directory object modifications for the targeted account, the “Directory service object was modified” event (5136) can indicate anomalous behavior if the subject changing the msDS-KeyCredentialLink is not the Azure AD Connect synchronization account or the ADFS service account, which will typically act as the Key Provisioning Server and legitimately modify this attribute for users.
 * A more specific preventive control is adding an Access Control Entry (ACE) to DENY the principal EVERYONE from modifying the attribute msDS-KeyCredentialLink for any account not meant to be enrolled in Key Trust passwordless authentication, and particularly privileged accounts.
