@@ -9,7 +9,7 @@ In a lot of engagements I see (in [BloodHound](https://github.com/BloodHoundAD/B
 
 These rights can be abused to add Shadow Credentials on the target object and obtain it's TGT and NT Hash.
 
-It occurred to me that we can just try and spray shadow credentials over the entire domain and see what's sticks (obviously this approach is better suited to non-stealth engagements, don't use this in a red team where stealth is required). When a Shadow Credentials is successfuly added, we simply do the whole PKINIT + UnPACTheHash dance and voilà - we get NT Hashes. 
+It occurred to me that we can just try and spray shadow credentials over the entire domain and see what's sticks (obviously this approach is better suited to non-stealth engagements, don't use this in a red team where stealth is required). When a Shadow Credentials is successfully added, we simply do the whole PKINIT + UnPACTheHash dance and voilà - we get NT Hashes. 
 
 Since the process is extremely fast, this can be used at the very start of the engagement, and hopefully you'll have some users and computers owned before you even start.
 
@@ -44,7 +44,7 @@ https://user-images.githubusercontent.com/54464773/194827503-b1eead1a-e09a-41ca-
 Usage: ShadowSpray.exe [-d FQDN] [-dc FQDN] [-u USERNAME] [-p PASSWORD] [-r] [-re] [-cp CERT_PASSWORD] [-ssl]
 
     -r   (--RestoreShadowCred)       Restore "msDS-KeyCredentialLink" attribute after the attack is done. (Optional)
-    -re  (--Recursive)               Perform ShadowSpray attack recursivly. (Optional)
+    -re  (--Recursive)               Perform ShadowSpray attack recursively. (Optional)
     -cp  (--CertificatePassword)     Certificate password. (default = random password)
 
 
@@ -76,7 +76,7 @@ ShadowSpray specific detections:
 * This tool attempts to modify **every** user/computer object in the domain in a very short timeframe, when it fails (most of the time) it generates an **LDAP_INSUFFICIENT_ACCESS** error. It's possible to build detection around that using the same approach of detecting regular password spray.
 
 ## Acknowledgements
-* [Elad Shamir](https://twitter.com/elad_shamir) for his research on [Shadow Credentials](https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab) and his awsome tool [Whisker](https://github.com/eladshamir/Whisker).
+* [Elad Shamir](https://twitter.com/elad_shamir) for his research on [Shadow Credentials](https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab) and his awesome tool [Whisker](https://github.com/eladshamir/Whisker).
 * [Will Schroeder](https://twitter.com/harmj0y) and everyone who contributed to [Rubeus](https://github.com/GhostPack/Rubeus/) which we all know and love. Basically all the TGT/TGS/UnPACTheHash functionality was taken from there.
 * [Cube0x0](https://twitter.com/cube0x0) Some of the code (specifically the modifications of LDAP attributes via WINAPI) was taken from his amazing tool [KrbRelay](https://github.com/cube0x0/KrbRelay).
 * [Michael Grafnetter](https://twitter.com/mgrafnetter) for his tool [DSInternals](https://github.com/MichaelGrafnetter/DSInternals) which was used here to help with the Shadow Credentials functionality.
